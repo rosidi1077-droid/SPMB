@@ -17,6 +17,13 @@ const LandingPage: React.FC = () => {
     setIsModalOpen(true);
   };
 
+  const scrollToSchools = () => {
+    const element = document.getElementById('schools');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const contactAdmin = () => {
     const adminPhone = getAdminPhone();
     const message = encodeURIComponent("Assalamu'alaikum Warohmatullah Wabarokatuh (السلام عليكم ورحمة الله وبركاته) Admin Yayasan Dhia El Widad, saya butuh bantuan terkait pendaftaran murid baru.");
@@ -50,18 +57,18 @@ const LandingPage: React.FC = () => {
               <span>Daftar Sekarang</span>
               <i className="fas fa-arrow-right"></i>
             </button>
-            <a 
-              href="#schools"
-              className="bg-emerald-600/40 border border-emerald-500/30 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-600/60 transition-all"
+            <button 
+              onClick={scrollToSchools}
+              className="bg-emerald-600/40 border border-emerald-500/30 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-600/60 transition-all cursor-pointer"
             >
               Lihat Jenjang Pendidikan
-            </a>
+            </button>
           </div>
         </div>
       </section>
 
       {/* School Levels Section */}
-      <section id="schools" className="py-20 -mt-20 container mx-auto px-4">
+      <section id="schools" className="py-20 -mt-20 container mx-auto px-4 scroll-mt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <SchoolCard 
             level={SchoolLevel.TPA}
