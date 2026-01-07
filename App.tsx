@@ -6,7 +6,7 @@ import SchoolCard from './components/SchoolCard.tsx';
 import RegistrationModal from './components/RegistrationModal.tsx';
 import AdminDashboard from './components/AdminDashboard.tsx';
 import { SchoolLevel } from './types.ts';
-import { SCHOOL_LEVELS } from './constants.tsx';
+import { SCHOOL_LEVELS, getAdminPhone } from './constants.tsx';
 
 const LandingPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,6 +15,12 @@ const LandingPage: React.FC = () => {
   const handleRegister = (level: SchoolLevel) => {
     setSelectedLevel(level);
     setIsModalOpen(true);
+  };
+
+  const contactAdmin = () => {
+    const adminPhone = getAdminPhone();
+    const message = encodeURIComponent("Halo Admin Yayasan Dhia El Widad, saya butuh bantuan terkait pendaftaran murid baru.");
+    window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
   };
 
   return (
@@ -92,7 +98,7 @@ const LandingPage: React.FC = () => {
             image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop"
             onRegister={handleRegister}
           />
-          <div className="bg-emerald-900 rounded-2xl p-8 flex flex-col justify-center text-white shadow-xl">
+          <div className="bg-emerald-900 rounded-2xl p-8 flex flex-col justify-center text-white shadow-xl border border-emerald-800">
              <div className="w-12 h-12 bg-emerald-700 rounded-full flex items-center justify-center mb-6">
                 <i className="fas fa-question text-xl"></i>
              </div>
@@ -100,8 +106,8 @@ const LandingPage: React.FC = () => {
              <p className="text-emerald-100 text-sm mb-6 opacity-80">
                Jika Anda mengalami kesulitan, tim Admin kami siap membantu proses pendaftaran dan upload berkas Anda.
              </p>
-             <button className="flex items-center space-x-2 text-white font-bold group">
-                <span className="border-b border-white pb-1 group-hover:pr-4 transition-all">Hubungi Admin</span>
+             <button onClick={contactAdmin} className="flex items-center space-x-2 text-white font-bold group text-left transition-all hover:translate-x-1">
+                <span className="border-b border-white pb-1 group-hover:pr-4 transition-all">Hubungi Admin Sekarang</span>
                 <i className="fas fa-external-link-alt text-xs"></i>
              </button>
           </div>

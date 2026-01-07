@@ -14,6 +14,22 @@ export enum RegistrationStatus {
   COMPLETED = 'Diterima'
 }
 
+export enum UserRole {
+  SUPER_ADMIN = 'SUPER_ADMIN',
+  LEVEL_ADMIN = 'LEVEL_ADMIN'
+}
+
+export interface AdminUser {
+  id: string;
+  username: string;
+  role: UserRole;
+  assignedLevel?: SchoolLevel; // Null if Super Admin
+}
+
+export interface AppSettings {
+  adminWhatsApp: string;
+}
+
 export interface Student {
   id: string;
   fullName: string;
