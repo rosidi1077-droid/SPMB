@@ -1,0 +1,7 @@
+{
+  "name": "SPMB Dhia El Widad",
+  "description": "Sistem Penerimaan Murid Baru Terpadu untuk Yayasan Pendidikan Dhia El Widad (TPA, TK, SD, SMP, SMA) dengan integrasi pendaftaran WhatsApp dan manajemen berkas admin.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
