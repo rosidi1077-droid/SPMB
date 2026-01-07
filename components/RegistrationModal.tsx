@@ -22,7 +22,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const adminPhone = getAdminPhone();
-    const message = `Halo Admin SPMB Yayasan Dhia El Widad, saya ingin mendaftarkan calon murid baru:
+    const message = `Assalamu'alaikum Warohmatullah Wabarokatuh (السلام عليكم ورحمة الله وبركاته) Admin SPMB Yayasan Dhia El Widad, saya ingin mendaftarkan calon murid baru:
     
 *Nama Lengkap:* ${formData.fullName}
 *Nama Panggilan:* ${formData.nickName}

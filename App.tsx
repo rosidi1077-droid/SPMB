@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
 
   const contactAdmin = () => {
     const adminPhone = getAdminPhone();
-    const message = encodeURIComponent("Halo Admin Yayasan Dhia El Widad, saya butuh bantuan terkait pendaftaran murid baru.");
+    const message = encodeURIComponent("Assalamu'alaikum Warohmatullah Wabarokatuh (السلام عليكم ورحمة الله وبركاته) Admin Yayasan Dhia El Widad, saya butuh bantuan terkait pendaftaran murid baru.");
     window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
   };
 
