@@ -1,25 +1,19 @@
 
-import { GoogleGenAI, Type } from "@google/genai";
-import { Student } from "../types";
+import { GoogleGenAI } from "@google/genai";
+import { Student } from "../types.ts";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
 
 export const summarizeRegistrations = async (students: Student[]): Promise<string> => {
-  if (students.length === 0) return "Belum ada pendaftar saat ini.";
-
-  const prompt = `Berikut adalah data pendaftar baru di Yayasan Pendidikan Dhia El Widad:
-  ${JSON.stringify(students.map(s => ({ name: s.fullName, level: s.level, status: s.status })))}
-  
-  Tolong berikan ringkasan statistik (berapa per jenjang) dan berikan saran singkat untuk admin pendaftaran dalam Bahasa Indonesia yang ramah.`;
-
+  if (students.length === 0) return "Belum ada pendaftar baru yang masuk hari ini.";
+  const prompt = `Berikan ringkasan statistik singkat pendaftar Dhia El Widad: ${JSON.stringify(students.map(s => ({ level: s.level })))}. Berikan salam pembuka yang ceria untuk admin.`;
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: prompt,
     });
-    return response.text || "Gagal menghasilkan ringkasan.";
+    return response.text || "Data siap dikelola.";
   } catch (error) {
-    console.error("Gemini Error:", error);
-    return "Layanan asisten AI sedang tidak tersedia.";
+    return "Sistem AI sedang istirahat, silakan cek tabel manual.";
   }
 };

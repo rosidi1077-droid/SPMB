@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import SchoolCard from './components/SchoolCard';
-import RegistrationModal from './components/RegistrationModal';
-import AdminDashboard from './components/AdminDashboard';
-import { SchoolLevel } from './types';
-import { YAYASAN_NAME, SCHOOL_LEVELS } from './constants';
+import Layout from './components/Layout.tsx';
+import SchoolCard from './components/SchoolCard.tsx';
+import RegistrationModal from './components/RegistrationModal.tsx';
+import AdminDashboard from './components/AdminDashboard.tsx';
+import { SchoolLevel } from './types.ts';
+import { SCHOOL_LEVELS } from './constants.tsx';
 
 const LandingPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +34,7 @@ const LandingPage: React.FC = () => {
             Membangun Masa Depan Gemilang di <span className="text-emerald-200">Dhia El Widad</span>
           </h1>
           <p className="text-lg md:text-xl text-emerald-50 opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Daftarkan putra-putri Anda melalui proses yang mudah dan cepat. Cukup isi data inti dan konsultasikan berkas via WhatsApp.
+            Daftarkan putra-putri Anda melalui proses yang mudah dan cepat. Cukup isi data inti dan pendaftaran otomatis diarahkan ke WhatsApp.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button 
@@ -61,35 +61,35 @@ const LandingPage: React.FC = () => {
             level={SchoolLevel.TPA}
             title="TPA Dhia El Widad"
             description="Layanan penitipan anak terpercaya dengan stimulasi dini yang berkualitas."
-            image="https://picsum.photos/seed/tpa/600/400"
+            image="https://images.unsplash.com/photo-1502086223501-7ea24ec8f4f6?q=80&w=600&auto=format&fit=crop"
             onRegister={handleRegister}
           />
           <SchoolCard 
             level={SchoolLevel.TK}
             title="TK & PAUD"
             description="Bermain sambil belajar untuk membangun fondasi karakter dan kreativitas."
-            image="https://picsum.photos/seed/tk/600/400"
+            image="https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=600&auto=format&fit=crop"
             onRegister={handleRegister}
           />
           <SchoolCard 
             level={SchoolLevel.SD}
             title="Sekolah Dasar"
             description="Pendidikan dasar holistik yang memadukan akademik dan nilai-nilai moral."
-            image="https://picsum.photos/seed/sd/600/400"
+            image="https://images.unsplash.com/photo-1503676260728-1c00da096a0b?q=80&w=600&auto=format&fit=crop"
             onRegister={handleRegister}
           />
           <SchoolCard 
             level={SchoolLevel.SMP}
             title="Sekolah Menengah Pertama"
             description="Mengembangkan potensi remaja melalui kurikulum yang adaptif dan inovatif."
-            image="https://picsum.photos/seed/smp/600/400"
+            image="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop"
             onRegister={handleRegister}
           />
           <SchoolCard 
             level={SchoolLevel.SMA}
             title="Sekolah Menengah Atas"
             description="Persiapan matang menuju jenjang universitas dan masa depan profesional."
-            image="https://picsum.photos/seed/sma/600/400"
+            image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop"
             onRegister={handleRegister}
           />
           <div className="bg-emerald-900 rounded-2xl p-8 flex flex-col justify-center text-white shadow-xl">
@@ -98,45 +98,12 @@ const LandingPage: React.FC = () => {
              </div>
              <h3 className="text-2xl font-bold mb-4">Butuh Bantuan?</h3>
              <p className="text-emerald-100 text-sm mb-6 opacity-80">
-               Jika Anda mengalami kesulitan dalam pendaftaran online, tim Admin kami siap membantu Anda secara langsung.
+               Jika Anda mengalami kesulitan, tim Admin kami siap membantu proses pendaftaran dan upload berkas Anda.
              </p>
              <button className="flex items-center space-x-2 text-white font-bold group">
-                <span className="border-b border-white pb-1 group-hover:pr-4 transition-all">Hubungi Admin Sekarang</span>
+                <span className="border-b border-white pb-1 group-hover:pr-4 transition-all">Hubungi Admin</span>
                 <i className="fas fa-external-link-alt text-xs"></i>
              </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="bg-slate-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Kenapa Memilih Dhia El Widad?</h2>
-            <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-user-check text-2xl text-emerald-600"></i>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Fokus Karakter</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">Menanamkan nilai-nilai luhur dan integritas sejak usia dini hingga dewasa.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-chalkboard-teacher text-2xl text-emerald-600"></i>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Pengajar Kompeten</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">Dibimbing oleh pendidik berpengalaman yang peduli dengan perkembangan anak.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-laptop-code text-2xl text-emerald-600"></i>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Fasilitas Modern</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">Lingkungan belajar yang nyaman didukung teknologi terkini.</p>
-            </div>
           </div>
         </div>
       </section>
